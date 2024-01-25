@@ -20,4 +20,11 @@ Install TidyEDGAR directly from GitHub using:
 
 `rev_processed <- prepare_qdata(revenue)`
 
+### Other examples:
+#### Net Income
+`net_income <- get_qdata(account = "NetIncomeLoss")`
+#### Operating Income
+`operating_income <- get_qdata(account = "OperatingIncomeLoss")`
+
+
 Leverage the power of TidyEDGAR to gain insights from financial data efficiently.

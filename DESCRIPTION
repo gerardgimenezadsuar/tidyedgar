@@ -1,5 +1,5 @@
 Package: tidyedgar
-Title: Get Clean Fundamental Financial Data from EGDAR
+Title: Tidy Fundamental Financial Data from EGDAR
 Version: 0.0.0.9000
 Authors@R: 
     person("Gerard", "Gimenez-Adsuar", , "gerard@solucionsdedades.cat", role = c("aut", "cre"),

@@ -25,7 +25,7 @@ get_qdata <- function(account = "Revenues",
 
   # Create combinations of account, year, and quarter
   combinations <- expand.grid(account = accounts, year = years, quarter = quarters)
-  message(nrow(combinations))
+  #message(nrow(combinations))
 
   no_cores <- detectCores() - 1
   cl <- makeCluster(no_cores)

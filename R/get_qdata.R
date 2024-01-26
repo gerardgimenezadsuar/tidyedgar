@@ -9,6 +9,10 @@
 #' @import jsonlite
 #' @returns A dataframe
 #' @export
+#' @examples
+#' \dontrun{
+#' get_qdata(account = "Revenues", years = 2020:2023, quarters = c("Q1", "Q2", "Q3", "Q4"))
+#' }
 
 get_qdata <- function(account = "Revenues",
                       years = 2020:2023,
@@ -27,7 +31,7 @@ get_qdata <- function(account = "Revenues",
   combinations <- expand.grid(account = accounts, year = years, quarter = quarters)
   #message(nrow(combinations))
 
-  no_cores <- detectCores() - 1
+  no_cores <- max(1, detectCores() %/% 2)
   cl <- makeCluster(no_cores)
 
   # Load necessary libraries in each worker

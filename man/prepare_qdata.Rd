@@ -17,3 +17,8 @@ A dataframe
 \description{
 Data wrangling for tidy fundamental data from EDGAR
 }
+\examples{
+\dontrun{
+prepare_qdata(get_qdata())
+}
+}

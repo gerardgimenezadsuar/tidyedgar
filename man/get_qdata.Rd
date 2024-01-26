@@ -19,3 +19,8 @@ A dataframe
 \description{
 Getting quarterly data from all public companies in EDGAR
 }
+\examples{
+\dontrun{
+get_qdata(account = "Revenues", years = 2020:2023, quarters = c("Q1", "Q2", "Q3", "Q4"))
+}
+}

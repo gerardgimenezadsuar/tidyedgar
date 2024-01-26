@@ -6,6 +6,10 @@
 #' @import tidyr
 #' @returns A dataframe
 #' @export
+#' @examples
+#' \dontrun{
+#' prepare_qdata(get_qdata())
+#' }
 
 prepare_qdata <- function(df = NULL, ...) {
   if (!is.data.frame(df)) {

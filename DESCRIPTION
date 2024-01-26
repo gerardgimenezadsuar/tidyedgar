@@ -4,7 +4,7 @@ Version: 1.0.0
 Authors@R: 
     person("Gerard", "Gimenez-Adsuar", , "gerard@solucionsdedades.cat", role = c("aut", "cre"),
            comment = c(ORCID = ""))
-Description: Automatic retrieval and data wrangling for fundamental financial data.
+Description: Automatic retrieval and data wrangling for fundamental financial data from SEC's EDGAR.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)

@@ -1,3 +1,6 @@
 .Rproj.user
 *.Rproj
 *.gitattributes
+*.log
+..Rcheck/R_check_bin/R
+..Rcheck/R_check_bin/Rscript

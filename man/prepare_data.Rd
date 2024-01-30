@@ -7,11 +7,11 @@
 prepare_data(df = NULL, quarterly = TRUE, ...)
 }
 \arguments{
-\item{df}{A dataframe.}
+\item{df}{A dataframe, output from get_qdata() or get_ydata().}
 
 \item{quarterly}{Boolean indicating if quarterly data is present.}
 
-\item{...}{Additional dataframes passed.}
+\item{...}{Additional dataframes to be combined from other accounts (NetIncomeLoss, OperatingIncomeLoss, etc).}
 }
 \value{
 A dataframe
@@ -20,5 +20,37 @@ A dataframe
 Data wrangling for tidy fundamental data from EDGAR
 }
 \examples{
-prepare_data(get_qdata(account = "NetIncomeLoss", years = 2022:2023, quarters = c("Q4")))
+revenue <- data.frame(
+taxonomy = rep("us-gaap", 3),
+tag = rep("Revenues", 3),
+ccp = rep("CY2020", 3),
+uom = rep("USD", 3),
+label = rep("Revenues", 3),
+description = rep("Amount of revenue recognized from goods sold, services rendered, ...", 3),
+pts = rep(2762, 3),
+data.accn = c("0001564590-22-012597", "0000002178-23-000038", "0001654954-22-005679"),
+data.cik = c(2098, 2178, 2186),
+data.entityName = c("ACME CORP", "ADAMS RESOURCES, INC.", "BK TECHNOLOGIES"),
+data.loc = c("US-CT", "US-TX", "US-FL"),
+data.start = rep("2020-01-01", 3),
+data.end = rep("2020-12-31", 3),
+data.val = c(164003040, 1022422000, 44139000),
+year = rep(2020, 3))
+netincome <- data.frame(
+taxonomy = rep("us-gaap", 3),
+tag = rep("NetIncomeLoss", 3),
+ccp = rep("CY2020", 3),
+uom = rep("USD", 3),
+label = rep("NetIncomeLoss", 3),
+description = rep("Net Income from operating activities", 3),
+pts = rep(2762, 3),
+data.accn = c("0001564590-22-012597", "0000002178-23-000038", "0001654954-22-005679"),
+data.cik = c(2098, 2178, 2186),
+data.entityName = c("ACME CORP", "ADAMS RESOURCES, INC.", "BK TECHNOLOGIES"),
+data.loc = c("US-CT", "US-TX", "US-FL"),
+data.start = rep("2020-01-01", 3),
+data.end = rep("2020-12-31", 3),
+data.val = c(100000, 200000, 4000000),
+year = rep(2020, 3))
+prepare_data(revenue,netincome, quarterly = FALSE)
 }

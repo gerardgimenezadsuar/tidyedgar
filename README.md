@@ -10,7 +10,9 @@ TidyEDGAR is an R package designed to simplify acquiring and transforming fundam
 ## Installation
 Install TidyEDGAR directly from GitHub using:
 
-```install_github("gerardgimenezadsuar/tidyedgar")```
+```
+devtools::install_github("gerardgimenezadsuar/tidyedgar")
+```
 
 ## Usage
 ### Fetching the latest (2020-2023) yearly financial data:

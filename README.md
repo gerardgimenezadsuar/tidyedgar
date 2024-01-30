@@ -13,18 +13,18 @@ Install TidyEDGAR directly from GitHub using:
 `install_github("gerardgimenezadsuar/tidyedgar")`
 
 ## Usage
-### Fetching Data: Retrieve the latest quarterly financial data:
+### Fetching the latest (2020-2023) yearly financial data:
+```
+net_income <- get_ydata(account = "NetIncomeLoss")
+revenue <- get_ydata(account = "Revenues")
+op_income <- get_ydata(account = "OperatingIncomeLoss")
+```
 
-`revenue <- get_qdata(account = "Revenues", years = 2020:2023, quarters = c("Q1", "Q2", "Q3", "Q4"))`
-### Data Processing: Transform and analyze the data with additional metrics such as net margin and quarter-over-quarter changes:
+### Data Processing
+#### Transform and analyze the data with additional metrics such as net margin and year-over-year changes:
 
-`rev_processed <- prepare_qdata(revenue)`
-
-### Other examples:
-#### Net Income
-`net_income <- get_qdata(account = "NetIncomeLoss")`
-#### Operating Income
-`operating_income <- get_qdata(account = "OperatingIncomeLoss")`
-
+```
+yearly <- prepare_data(revenue, net_income, op_income, quarterly = F)
+```
 
 Leverage the power of TidyEDGAR to gain insights from financial data efficiently.

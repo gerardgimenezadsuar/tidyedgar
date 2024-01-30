@@ -4,7 +4,12 @@
 \alias{get_qdata}
 \title{Getting quarterly data from all public companies in EDGAR}
 \usage{
-get_qdata(account = "Revenues", years = 2020:2023, quarters = c("Q3"))
+get_qdata(
+  account = "Revenues",
+  years = 2020:2023,
+  quarters = c("Q3"),
+  max_cores = T
+)
 }
 \arguments{
 \item{account}{A string representing the account.}
@@ -12,6 +17,8 @@ get_qdata(account = "Revenues", years = 2020:2023, quarters = c("Q3"))
 \item{years}{A sequence of numeric values representing the years.}
 
 \item{quarters}{A string representing the quarter.}
+
+\item{max_cores}{Boolean for limiting the number of cores to 1.}
 }
 \value{
 A dataframe
@@ -20,7 +27,6 @@ A dataframe
 Getting quarterly data from all public companies in EDGAR
 }
 \examples{
-\dontrun{
-get_qdata(account = "Revenues", years = 2020:2023, quarters = c("Q1", "Q2", "Q3", "Q4"))
-}
+get_qdata(account = "NetIncomeLoss", years = 2022:2023, quarters = c("Q4"))
+
 }

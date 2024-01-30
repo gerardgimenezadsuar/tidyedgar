@@ -3,6 +3,7 @@
 #' @param account A string representing the account.
 #' @param years A sequence of numeric values representing the years.
 #' @param quarters A string representing the quarter.
+#' @param max_cores Boolean for limiting the number of cores to 1.
 #' @import dplyr
 #' @import parallel
 #' @import httr
@@ -10,13 +11,13 @@
 #' @returns A dataframe
 #' @export
 #' @examples
-#' \dontrun{
-#' get_qdata(account = "Revenues", years = 2020:2023, quarters = c("Q1", "Q2", "Q3", "Q4"))
-#' }
+#' get_qdata(account = "NetIncomeLoss", years = 2022:2023, quarters = c("Q4"))
+#'
 
 get_qdata <- function(account = "Revenues",
                       years = 2020:2023,
-                      quarters = c("Q3")) {
+                      quarters = c("Q3"),
+                      max_cores = T) {
   if(account == "Revenues"){
     accounts <- c("Revenues",
                   "RevenueFromContractWithCustomerExcludingAssessedTax",
@@ -31,7 +32,11 @@ get_qdata <- function(account = "Revenues",
   combinations <- expand.grid(account = accounts, year = years, quarter = quarters)
   #message(nrow(combinations))
 
-  no_cores <- max(1, detectCores() %/% 2)
+  if(max_cores){
+    no_cores <- 1
+  }else{
+    no_cores <- max(1, detectCores() %/% 2)
+  }
   cl <- makeCluster(no_cores)
 
   # Load necessary libraries in each worker

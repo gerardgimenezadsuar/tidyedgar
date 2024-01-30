@@ -19,7 +19,7 @@ retrieve_data <- function(account, year, quarter) {
       data$year <- year
       return(data.frame(data))
     }, error = function(e) {
-      message(paste0("Error in ",account," - ", year, "-", quarter, ": ", e$message))
+      #message(paste0("Error in ",account," - ", year, "-", quarter, ": ", e$message))
       return(data.frame())
     })
   }else{
@@ -30,7 +30,7 @@ retrieve_data <- function(account, year, quarter) {
       data$year <- year
       return(data.frame(data))
     }, error = function(e) {
-      message(paste0("Error in ",account," - ", year, ": ", e$message))
+      #message(paste0("Error in ",account," - ", year, ": ", e$message))
       return(data.frame())
     })
 

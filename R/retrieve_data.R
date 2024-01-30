@@ -25,7 +25,6 @@ retrieve_data <- function(account, year, quarter) {
   }else{
     url <- paste0("https://data.sec.gov/api/xbrl/frames/us-gaap/", account, "/USD/CY", year, ".json")
     response <- GET(url, user_agent("Mozilla/5.0"))
-    message(response)
     tryCatch({
       data <- fromJSON(content(response, as = "text", encoding = "UTF-8"), flatten = TRUE)
       data$year <- year

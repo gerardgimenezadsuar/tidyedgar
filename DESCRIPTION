@@ -1,10 +1,10 @@
 Package: tidyedgar
-Title: Tidy Fundamental Financial Data from EDGAR
+Title: Tidy Fundamental Financial Data from S.E.C.'s EDGAR API
 Version: 1.0.0
 Authors@R: 
     person("Gerard", "Gimenez-Adsuar", , "gerard@solucionsdedades.cat", role = c("aut", "cre"),
            comment = c(ORCID = ""))
-Description: Automates the retrieval and formatting of fundamental financial data from the SEC's Electronic Data Gathering, Analysis, and Retrieval system (EDGAR). It streamlines the process of accessing complex financial information, transforming it into a tidy, analysis-ready format.
+Description: Automates the retrieval and formatting of fundamental financial data from the SEC's Electronic Data Gathering, Analysis, and Retrieval system (EDGAR) API. It streamlines the process of accessing complex financial information, transforming it into a tidy, analysis-ready format.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)

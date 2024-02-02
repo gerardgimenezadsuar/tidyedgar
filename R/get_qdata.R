@@ -1,9 +1,9 @@
-#' Getting quarterly data from all public companies in EDGAR
+#' Getting quarterly data from all public companies from EDGAR
 #'
-#' @param account A string representing the account.
+#' @param account A string representing the account (eg NetIncomeLoss, Revenues, OperatingIncomeLoss, ...)
 #' @param years A sequence of numeric values representing the years.
 #' @param quarters A string representing the quarter.
-#' @param max_cores Boolean for limiting the number of cores to 1.
+#' @param max_cores Boolean limiting the number of cores to 1.
 #' @import dplyr
 #' @import parallel
 #' @import httr
@@ -17,7 +17,7 @@
 get_qdata <- function(account = "Revenues",
                       years = 2020:2023,
                       quarters = c("Q3"),
-                      max_cores = T) {
+                      max_cores = TRUE) {
   if(account == "Revenues"){
     accounts <- c("Revenues",
                   "RevenueFromContractWithCustomerExcludingAssessedTax",

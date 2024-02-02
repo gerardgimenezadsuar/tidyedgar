@@ -2,29 +2,29 @@
 % Please edit documentation in R/get_qdata.R
 \name{get_qdata}
 \alias{get_qdata}
-\title{Getting quarterly data from all public companies in EDGAR}
+\title{Getting quarterly data from all public companies from EDGAR}
 \usage{
 get_qdata(
   account = "Revenues",
   years = 2020:2023,
   quarters = c("Q3"),
-  max_cores = T
+  max_cores = TRUE
 )
 }
 \arguments{
-\item{account}{A string representing the account.}
+\item{account}{A string representing the account (eg NetIncomeLoss, Revenues, OperatingIncomeLoss, ...)}
 
 \item{years}{A sequence of numeric values representing the years.}
 
 \item{quarters}{A string representing the quarter.}
 
-\item{max_cores}{Boolean for limiting the number of cores to 1.}
+\item{max_cores}{Boolean limiting the number of cores to 1.}
 }
 \value{
 A dataframe
 }
 \description{
-Getting quarterly data from all public companies in EDGAR
+Getting quarterly data from all public companies from EDGAR
 }
 \examples{
 get_qdata(account = "NetIncomeLoss", years = 2022:2023, quarters = c("Q4"))

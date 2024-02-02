@@ -2,12 +2,12 @@
 % Please edit documentation in R/get_ydata.R
 \name{get_ydata}
 \alias{get_ydata}
-\title{Getting yearly data from all public companies in EDGAR}
+\title{Getting yearly data from all public companies from EDGAR}
 \usage{
 get_ydata(account = "Revenues", years = 2020:2023)
 }
 \arguments{
-\item{account}{A string representing the account.}
+\item{account}{A string representing the account (eg NetIncomeLoss, Revenues, OperatingIncomeLoss, ...)}
 
 \item{years}{A sequence of numeric values representing the years.}
 }
@@ -15,7 +15,7 @@ get_ydata(account = "Revenues", years = 2020:2023)
 A dataframe
 }
 \description{
-Getting yearly data from all public companies in EDGAR
+Getting yearly data from all public companies from EDGAR
 }
 \examples{
 get_ydata(account = "NetIncomeLoss", years = 2022:2023)

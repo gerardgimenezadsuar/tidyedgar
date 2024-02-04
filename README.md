@@ -1,5 +1,5 @@
-# TidyEDGAR: Streamlined Access to EDGAR's Financial Data
-TidyEDGAR is an R package designed to simplify acquiring and transforming fundamental financial data from the EDGAR database. Leveraging the official S.E.C. API, TidyEDGAR outputs data in a clean, 'tidy' format ideal for financial analysis and stock screening based on fundamental data.
+# tidyedgar: Streamlined Access to EDGAR's Financial Data
+tidyedgar is an R package designed to simplify acquiring and transforming fundamental financial data from the EDGAR database. Leveraging the official S.E.C. API, TidyEDGAR outputs data in a clean, 'tidy' format ideal for financial analysis and stock screening based on fundamental data.
 
 ## Features
  - Ease of Use: Automates the retrieval and preprocessing of financial data.

@@ -8,9 +8,11 @@ TidyEDGAR is an R package designed to simplify acquiring and transforming fundam
  - Versatile Analysis: Suitable for fundamental analysis and stock screening.
 
 ## Installation
-Install TidyEDGAR directly from GitHub using:
+Install TidyEDGAR using:
 
 ```
+install.packages("tidyedgar")
+#or to get the development version:
 devtools::install_github("gerardgimenezadsuar/tidyedgar")
 ```
 

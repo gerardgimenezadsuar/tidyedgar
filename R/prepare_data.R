@@ -57,8 +57,10 @@ prepare_data <- function(df = NULL, quarterly = TRUE, ...) {
   qy$revenue <- apply(qy[revenue_cols], 1, safe_max, na.rm=T)
 
   # Pre-check for column existence
-  required_cols <- c("NetIncomeLoss", "revenue", "OperatingIncomeLoss")
-  existing_cols <- required_cols[required_cols %in% names(qy)]
+  #required_cols <- c("NetIncomeLoss", "revenue", "OperatingIncomeLoss")
+  #existing_cols <- required_cols[required_cols %in% names(qy)]
+  existing_cols <- names(qy)
+
 
 
   if(quarterly){
@@ -89,6 +91,7 @@ prepare_data <- function(df = NULL, quarterly = TRUE, ...) {
         change_R = if("revenue" %in% existing_cols) (.data$revenue - lag(.data$revenue)) / abs(lag(.data$revenue)) else NA,
         change_OI = if("OperatingIncomeLoss" %in% existing_cols) (.data$OperatingIncomeLoss - lag(.data$OperatingIncomeLoss)) / abs(lag(.data$OperatingIncomeLoss)) else NA,
         change_R = ifelse(is.infinite(.data$change_R), 0, .data$change_R),
+        gross_margin = if("GrossProfit" %in% existing_cols & "revenue" %in% existing_cols) round(.data$GrossProfit / .data$revenue, 4) else NA,
         operating_margin = if("OperatingIncomeLoss" %in% existing_cols & "revenue" %in% existing_cols) round(.data$OperatingIncomeLoss / .data$revenue, 4) else NA,
         net_margin = if("NetIncomeLoss" %in% existing_cols & "revenue" %in% existing_cols) round(.data$NetIncomeLoss / .data$revenue, 4) else NA
       ) %>%

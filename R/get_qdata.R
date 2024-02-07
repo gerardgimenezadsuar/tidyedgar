@@ -24,14 +24,9 @@ get_qdata <- function(account = "Revenues",
                   "SalesRevenueGoodsNet",
                   "SalesRevenueNet"
     )
-  } else {
-    accounts <- c(account)
-  }
-
-  if(account == "NetIncomeLoss"){
+  }else if(account == "NetIncomeLoss"){
     accounts <- c("NetIncomeLoss",
-                  "ProfitLoss"
-    )
+                  "ProfitLoss")
   } else {
     accounts <- c(account)
   }

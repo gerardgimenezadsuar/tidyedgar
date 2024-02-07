@@ -18,18 +18,12 @@ get_ydata <- function(account = "Revenues",
                   "SalesRevenueGoodsNet",
                   "SalesRevenueNet"
     )
-  } else {
-    accounts <- c(account)
-  }
-
-  if(account == "NetIncomeLoss"){
+  }else if(account == "NetIncomeLoss"){
     accounts <- c("NetIncomeLoss",
-                  "ProfitLoss"
-    )
+                  "ProfitLoss")
   } else {
     accounts <- c(account)
   }
-
 
   # Create combinations of account, year
   combinations <- expand.grid(account = accounts, year = years)

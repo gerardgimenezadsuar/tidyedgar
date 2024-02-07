@@ -55,11 +55,17 @@ prepare_data <- function(df = NULL, quarterly = TRUE, ...) {
   # Efficient Revenue Calculation
   revenue_cols <- names(qy)[grepl("Revenue", names(qy)) & !grepl("Cost of Revenue", names(qy))]
   qy$revenue <- apply(qy[revenue_cols], 1, safe_max, na.rm=T)
+  # Efficient Net Income Calculation
+  ni_cols <- c("NetIncomeLoss", "ProfitLoss")
+  qy$net_income <- apply(qy[ni_cols], 1, safe_max, na.rm=T)
 
-  # Pre-check for column existence
-  #required_cols <- c("NetIncomeLoss", "revenue", "OperatingIncomeLoss")
-  #existing_cols <- required_cols[required_cols %in% names(qy)]
-  existing_cols <- names(qy)
+  accts_disc <- c("Revenues",
+                "RevenueFromContractWithCustomerExcludingAssessedTax",
+                "SalesRevenueGoodsNet",
+                "SalesRevenueNet", "ProfitLoss", "NetIncomeLoss")
+
+  # removing innecessary columns since revenue and net_income summarise the ones found above
+  existing_cols <- setdiff(names(qy), accts_disc)
 
 
 
@@ -70,12 +76,12 @@ prepare_data <- function(df = NULL, quarterly = TRUE, ...) {
       arrange(.data$data.entityName, .data$year, .data$quarter) %>%
       group_by(.data$data.cik, .data$quarter) %>%
       mutate(
-        qoq_change_NI = if("NetIncomeLoss" %in% existing_cols) (.data$NetIncomeLoss - lag(.data$NetIncomeLoss)) / abs(lag(.data$NetIncomeLoss)) else NA,
+        qoq_change_NI = if("net_income" %in% existing_cols) (.data$net_income - lag(.data$net_income)) / abs(lag(.data$net_income)) else NA,
         qoq_change_R = if("revenue" %in% existing_cols) (.data$revenue - lag(.data$revenue)) / abs(lag(.data$revenue)) else NA,
         qoq_change_OI = if("OperatingIncomeLoss" %in% existing_cols) (.data$OperatingIncomeLoss - lag(.data$OperatingIncomeLoss)) / abs(lag(.data$OperatingIncomeLoss)) else NA,
         qoq_change_R = ifelse(is.infinite(.data$qoq_change_R), 0, .data$qoq_change_R),
         operating_margin = if("OperatingIncomeLoss" %in% existing_cols & "revenue" %in% existing_cols) round(.data$OperatingIncomeLoss / .data$revenue, 4) else NA,
-        net_margin = if("NetIncomeLoss" %in% existing_cols & "revenue" %in% existing_cols) round(.data$NetIncomeLoss / .data$revenue, 4) else NA
+        net_margin = if("net_income" %in% existing_cols & "revenue" %in% existing_cols) round(.data$net_income / .data$revenue, 4) else NA
       ) %>%
       ungroup()
 
@@ -87,13 +93,13 @@ prepare_data <- function(df = NULL, quarterly = TRUE, ...) {
       arrange(.data$data.entityName, .data$year) %>%
       group_by(.data$data.cik) %>%
       mutate(
-        change_NI = if("NetIncomeLoss" %in% existing_cols) (.data$NetIncomeLoss - lag(.data$NetIncomeLoss)) / abs(lag(.data$NetIncomeLoss)) else NA,
+        change_NI = if("net_income" %in% existing_cols) (.data$net_income - lag(.data$net_income)) / abs(lag(.data$net_income)) else NA,
         change_R = if("revenue" %in% existing_cols) (.data$revenue - lag(.data$revenue)) / abs(lag(.data$revenue)) else NA,
         change_OI = if("OperatingIncomeLoss" %in% existing_cols) (.data$OperatingIncomeLoss - lag(.data$OperatingIncomeLoss)) / abs(lag(.data$OperatingIncomeLoss)) else NA,
         change_R = ifelse(is.infinite(.data$change_R), 0, .data$change_R),
         gross_margin = if("GrossProfit" %in% existing_cols & "revenue" %in% existing_cols) round(.data$GrossProfit / .data$revenue, 4) else NA,
         operating_margin = if("OperatingIncomeLoss" %in% existing_cols & "revenue" %in% existing_cols) round(.data$OperatingIncomeLoss / .data$revenue, 4) else NA,
-        net_margin = if("NetIncomeLoss" %in% existing_cols & "revenue" %in% existing_cols) round(.data$NetIncomeLoss / .data$revenue, 4) else NA
+        net_margin = if("net_income" %in% existing_cols & "revenue" %in% existing_cols) round(.data$net_income / .data$revenue, 4) else NA
       ) %>%
       ungroup()
 

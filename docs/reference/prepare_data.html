@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">tidyedgar</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.1</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -101,8 +101,16 @@
 <span class="r-in"><span>data.val <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">100000</span>, <span class="fl">200000</span>, <span class="fl">4000000</span><span class="op">)</span>,</span></span>
 <span class="r-in"><span>year <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">2020</span>, <span class="fl">3</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu">prepare_data</span><span class="op">(</span><span class="va">revenue</span>,<span class="va">netincome</span>, quarterly <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in qy[ni_cols]:</span> Can't subset columns that don't exist.</span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> Column `ProfitLoss` doesn't exist.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> taxonomyccpuomdata.cikdata.entityNamedata.locdata.startdata.endyearrevenuenet_income</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 3 × 17</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   data.cik data.entityName       ccp     year taxonomy uom   data.loc data.start</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span>     <span style="text-decoration: underline;">2</span>098 ACME CORP             CY2020  <span style="text-decoration: underline;">2</span>020 us-gaap  USD   US-CT    2020-01-01</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span>     <span style="text-decoration: underline;">2</span>178 ADAMS RESOURCES, INC. CY2020  <span style="text-decoration: underline;">2</span>020 us-gaap  USD   US-TX    2020-01-01</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span>     <span style="text-decoration: underline;">2</span>186 BK TECHNOLOGIES       CY2020  <span style="text-decoration: underline;">2</span>020 us-gaap  USD   US-FL    2020-01-01</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 9 more variables: data.end &lt;chr&gt;, revenue &lt;dbl&gt;, net_income &lt;dbl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   change_NI &lt;dbl&gt;, change_R &lt;dbl&gt;, change_OI &lt;lgl&gt;, gross_margin &lt;lgl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   operating_margin &lt;lgl&gt;, net_margin &lt;dbl&gt;</span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>

@@ -1,36 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>/404.html</loc>
+    <loc>https://gerardgimenezadsuar.github.io/tidyedgar/404.html</loc>
   </url>
   <url>
-    <loc>/LICENSE-text.html</loc>
+    <loc>https://gerardgimenezadsuar.github.io/tidyedgar/LICENSE-text.html</loc>
   </url>
   <url>
-    <loc>/LICENSE.html</loc>
+    <loc>https://gerardgimenezadsuar.github.io/tidyedgar/LICENSE.html</loc>
   </url>
   <url>
-    <loc>/authors.html</loc>
+    <loc>https://gerardgimenezadsuar.github.io/tidyedgar/authors.html</loc>
   </url>
   <url>
-    <loc>/index.html</loc>
+    <loc>https://gerardgimenezadsuar.github.io/tidyedgar/index.html</loc>
   </url>
   <url>
-    <loc>/reference/get_qdata.html</loc>
+    <loc>https://gerardgimenezadsuar.github.io/tidyedgar/reference/get_qdata.html</loc>
   </url>
   <url>
-    <loc>/reference/get_ydata.html</loc>
+    <loc>https://gerardgimenezadsuar.github.io/tidyedgar/reference/get_ydata.html</loc>
   </url>
   <url>
-    <loc>/reference/index.html</loc>
+    <loc>https://gerardgimenezadsuar.github.io/tidyedgar/reference/index.html</loc>
   </url>
   <url>
-    <loc>/reference/prepare_data.html</loc>
+    <loc>https://gerardgimenezadsuar.github.io/tidyedgar/reference/prepare_data.html</loc>
   </url>
   <url>
-    <loc>/reference/retrieve_data.html</loc>
+    <loc>https://gerardgimenezadsuar.github.io/tidyedgar/reference/retrieve_data.html</loc>
   </url>
   <url>
-    <loc>/reference/safe_max.html</loc>
+    <loc>https://gerardgimenezadsuar.github.io/tidyedgar/reference/safe_max.html</loc>
+  </url>
+  <url>
+    <loc>https://gerardgimenezadsuar.github.io/tidyedgar/reference/yearly_data.html</loc>
   </url>
 </urlset>

@@ -33,11 +33,11 @@ df <- yearly_data(years = 2015:2023)
 
 This will get you the following financials for ALL companies in EDGAR:
 
-![](images/Selection_900.png)
+![](man/figures/Selection_900.png)
 
 And easily you can create plots like this:
 
-![](images/apple_vs_microsoft.png)
+![](man/figures/apple_vs_microsoft.png)
 
 The previous example showcased the main wrapper function. However, there are many options to customize the data retrieval and processing.
 

@@ -56,7 +56,7 @@ prepare_data <- function(df = NULL, quarterly = TRUE, ...) {
   revenue_cols <- names(qy)[grepl("Revenue", names(qy)) & !grepl("Cost of Revenue", names(qy))]
   qy$revenue <- apply(qy[revenue_cols], 1, safe_max, na.rm=T)
   # Efficient Net Income Calculation
-  ni_cols <- c("NetIncomeLoss", "ProfitLoss")
+  ni_cols <-  names(qy)[grepl("NetIncomeLoss", names(qy)) | grepl("ProfitLoss", names(qy))]
   qy$net_income <- apply(qy[ni_cols], 1, safe_max, na.rm=T)
 
   accts_disc <- c("Revenues",
@@ -66,6 +66,7 @@ prepare_data <- function(df = NULL, quarterly = TRUE, ...) {
 
   # removing innecessary columns since revenue and net_income summarise the ones found above
   existing_cols <- setdiff(names(qy), accts_disc)
+  message(existing_cols)
 
 
 

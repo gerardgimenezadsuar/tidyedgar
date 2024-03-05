@@ -22,8 +22,10 @@ yearly_data <- function(years = 2020:2023){
   ni <- get_ydata(account = "NetIncomeLoss", years = years)
   message("-- Getting Gross Profit")
   gp <- get_ydata(account = "GrossProfit", years = years)
+  message("-- Getting EPS")
+  eps <- get_ydata(account = "EarningsPerShareBasic", years = years, unit = "USD-per-shares")
   message("-- Tidying up the data")
-  tot <- prepare_data(rev, ni, oi, gp, quarterly=FALSE)
+  tot <- prepare_data(rev, ni, oi, gp, eps, quarterly=FALSE)
   message(paste0("Got the financials of ", length(unique(tot$data.cik)), " companies"))
   return(tot)
 }

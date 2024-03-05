@@ -4,7 +4,7 @@
 \alias{retrieve_data}
 \title{Helper function for quarterly financial data retrieval}
 \usage{
-retrieve_data(account, year, quarter)
+retrieve_data(account, year, quarter, taxonomy = "us-gaap", unit = "USD")
 }
 \arguments{
 \item{account}{A string representing the account.}
@@ -12,6 +12,10 @@ retrieve_data(account, year, quarter)
 \item{year}{A numeric value representing the year.}
 
 \item{quarter}{A string representing the quarter.}
+
+\item{taxonomy}{A string representing the taxonomy.}
+
+\item{unit}{A string representing the units.}
 }
 \value{
 A dataframe

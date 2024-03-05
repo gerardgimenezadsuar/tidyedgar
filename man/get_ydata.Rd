@@ -4,12 +4,14 @@
 \alias{get_ydata}
 \title{Getting yearly data from all public companies from EDGAR}
 \usage{
-get_ydata(account = "Revenues", years = 2020:2023)
+get_ydata(account = "Revenues", years = 2020:2023, ...)
 }
 \arguments{
 \item{account}{A string representing the account (eg NetIncomeLoss, Revenues, OperatingIncomeLoss, ...)}
 
 \item{years}{A sequence of numeric values representing the years.}
+
+\item{...}{Additional variables to use custom taxonomies or units for data retrieval.}
 }
 \value{
 A dataframe

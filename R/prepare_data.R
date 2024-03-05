@@ -48,7 +48,7 @@ prepare_data <- function(df = NULL, quarterly = TRUE, ...) {
   }
 
   qy <- bind_rows(df, ...) %>%
-    select(-.data$label, -.data$description, -.data$data.accn, -.data$pts) %>%
+    select(-.data$label, -.data$description, -.data$data.accn, -.data$pts, -.data$uom) %>%
     pivot_wider(names_from = c("tag"), values_from = "data.val") %>%
     mutate(data.entityName = toupper(.data$data.entityName))
 
@@ -66,7 +66,7 @@ prepare_data <- function(df = NULL, quarterly = TRUE, ...) {
 
   # removing innecessary columns since revenue and net_income summarise the ones found above
   existing_cols <- setdiff(names(qy), accts_disc)
-  message(existing_cols)
+  #message(existing_cols)
 
 
 

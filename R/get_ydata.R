@@ -2,6 +2,7 @@
 #'
 #' @param account A string representing the account (eg NetIncomeLoss, Revenues, OperatingIncomeLoss, ...)
 #' @param years A sequence of numeric values representing the years.
+#' @param ... Additional variables to use custom taxonomies or units for data retrieval.
 #' @import dplyr
 #' @import httr
 #' @import jsonlite
@@ -11,7 +12,8 @@
 #' get_ydata(account = "NetIncomeLoss", years = 2022:2023)
 
 get_ydata <- function(account = "Revenues",
-                      years = 2020:2023) {
+                      years = 2020:2023,
+                      ...) {
   if(account == "Revenues"){
     accounts <- c("Revenues",
                   "RevenueFromContractWithCustomerExcludingAssessedTax",
@@ -33,7 +35,7 @@ get_ydata <- function(account = "Revenues",
     results <- lapply(1:nrow(combinations), function(i) {
       combination <- combinations[i, ]
       #message(paste("--Retrieving", combination$year, combination$account, sep = " "))
-      retrieve_data(combination$account, combination$year, quarter = NA)
+      retrieve_data(combination$account, combination$year, quarter = NA, ...)
     })
   })
 

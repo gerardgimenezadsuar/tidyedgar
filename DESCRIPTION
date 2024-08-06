@@ -15,4 +15,5 @@ Imports:
     parallel,
     tidyr,
     httr
-URL: https://gerardgimenezadsuar.github.io/tidyedgar/
+URL: https://gerardgimenezadsuar.github.io/tidyedgar/, https://github.com/gerardgimenezadsuar/tidyedgar
+BugReports: https://github.com/gerardgimenezadsuar/tidyedgar/issues

@@ -35,3 +35,34 @@ subsequent runs complete in under a minute.
 - `--sic` override SIC codes (default covers semis + semi equipment).
 - `--sic-cache` path to the CIK->SIC cache file.
 - `--out` output CSV path.
+
+## value_screen.py
+
+Takes the CSV from `semiconductor_screen.py`, joins live market data
+from Yahoo via `yfinance`, applies a fundamentals quality filter
+(positive operating margin, minimum net margin, minimum revenue CAGR),
+then z-scores P/Sales and P/E within each SIC peer group. Output is
+sorted by a composite of cheapness vs peers + quality.
+
+Treat the result as a candidate list, not a buy list. There is no EV
+(no debt data from EDGAR frames), no FCF, no forward estimates.
+
+### Requirements
+
+```
+pip install pandas yfinance
+```
+
+### Run
+
+```
+python scripts/value_screen.py --in semis.csv --out semis_ranked.csv
+```
+
+### Flags
+
+- `--in` input CSV (output of `semiconductor_screen.py`).
+- `--out` output CSV path.
+- `--min-margin` minimum trailing net margin (default 0.05).
+- `--min-cagr` minimum revenue CAGR over the input window (default 0.05).
+- `--peer-min` minimum peers per SIC to compute z-scores (default 4).

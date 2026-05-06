@@ -1,0 +1,47 @@
+name: Bake prices weekly
+
+# Re-runs the canonical-watchlist price bake every Monday at 07:00 UTC
+# (Sunday 23:00 PT — well after Friday's US close + weekend settlement).
+# Pushing the updated JSON triggers a Vercel auto-redeploy, so the live
+# app picks up fresh prices with no manual steps.
+
+on:
+  schedule:
+    - cron: "0 7 * * 1"
+  workflow_dispatch: # also runnable on demand from the Actions tab
+
+jobs:
+  bake:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # GITHUB_TOKEN needs this to push the commit
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install yfinance pandas
+
+      - name: Run bake script
+        run: python scripts/bake_prices.py
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if git diff --quiet -- web/lib/data/prices_baked.json; then
+            echo "No changes to baked prices — skipping commit"
+            exit 0
+          fi
+          git add web/lib/data/prices_baked.json
+          git commit -m "chore(bake): weekly price refresh"
+          git push
